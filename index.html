@@ -234,10 +234,6 @@ nav {
 #home {
   min-height: 100vh;
   background: var(--black);
-  background-image: url("https://raw.githubusercontent.com/nicolcarboni/tramecorporee/main/lucebuio.PNG");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   color: var(--white);
   display: flex;
   flex-direction: column;
@@ -274,7 +270,7 @@ nav {
   display: inline;
   margin: 0;
   font-family: 'Work Sans', sans-serif;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 300;
   letter-spacing: 0.02em;
   text-transform: none;
@@ -286,13 +282,7 @@ nav {
   line-height: 1.15;
 }
 
-#home::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-  z-index: 0;
-}
+
 
 .hero-pre {
   font-family: 'Jost', sans-serif;
@@ -326,6 +316,150 @@ nav {
   color: var(--white);
 }
 
+
+
+/* HERO LAYOUT: cerchio a destra su schermi larghi */
+.hero-grid {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-text { display: flex; flex-direction: column; align-items: center; }
+
+.hero-claim {
+  display: block;
+  margin: 0.4rem 0 0;
+  font-family: 'Jost', sans-serif;
+  font-size: clamp(0.95rem, 1.15vw, 1.08rem);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.9;
+  color: var(--white);
+}
+.hero-claim::before {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--rosa);
+  margin: 0 auto 1rem;
+}
+
+@media (min-width: 1180px) {
+  .hero-grid {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 4rem;
+    align-self: stretch;
+    max-width: 1100px;
+    /* bordo sinistro allineato alla colonna di 820px della sezione "Il metodo" */
+    margin: 0 0 0 max(0px, calc(50% - 410px));
+  }
+  .hero-grid .hero-ring-wrap { order: 2; width: min(100%, clamp(300px, 28vw, 420px)); justify-self: start; margin: 0 0 0 clamp(0px, 2vw, 2.5rem); }
+  .hero-text { order: 1; align-items: flex-start; text-align: left; }
+  .hero-text .hero-corpi { justify-content: flex-start; }
+  .hero-text .hero-desc { margin-bottom: 2.4rem; }
+  .hero-claim { border-left: 3px solid var(--rosa); padding-left: 1.1rem; }
+  .hero-claim::before { display: none; }
+}
+
+/* HERO RING — danzo, dunque vivo, dunque */
+.hero-ring-wrap {
+  position: relative;
+  z-index: 1;
+  width: clamp(240px, 26vw, 340px);
+  margin: 0 auto 2rem;
+}
+.hero-ring { display: block; width: 100%; height: auto; overflow: visible; }
+.hero-ring .ring-outer { transform-origin: 200px 200px; animation: heroRingSpin 40s linear infinite; }
+.hero-ring .ring-inner { transform-origin: 200px 200px; animation: heroRingSpin 64s linear infinite; }
+.hero-ring .ring-dot   { transform-origin: 200px 200px; animation: heroRingBreath 5s ease-in-out infinite; }
+@keyframes heroRingSpin { to { transform: rotate(360deg); } }
+@keyframes heroRingBreath { 0%,100% { transform: scale(1); } 50% { transform: scale(1.35); } }
+#home.ring-paused .hero-ring * { animation-play-state: paused; }
+
+.hero-io {
+  font-family: 'Jost', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  margin: 0 0 0.3rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* il pallino rosa e' il pulsante pausa/riprendi */
+.hero-ring-toggle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.hero-ring-toggle svg { width: 13px; height: 13px; fill: currentColor; }
+.hero-ring-toggle .ico-pause,
+.hero-ring-toggle .ico-play { display: none; }
+.hero-ring-toggle:hover .ico-pause,
+.hero-ring-toggle:focus-visible .ico-pause { display: block; }
+#home.ring-paused .hero-ring-toggle .ico-pause { display: none; }
+#home.ring-paused .hero-ring-toggle .ico-play { display: block; }
+
+.hero-sono {
+  font-family: 'Jost', sans-serif;
+  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+  letter-spacing: 0.02em;
+  color: var(--white);
+  margin-bottom: 1.3rem;
+  position: relative;
+  z-index: 1;
+}
+
+#home .btn-white {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  padding: 1.05rem 2.8rem;
+  background: var(--rosa);
+  color: var(--black);
+  border: 1px solid var(--rosa);
+}
+#home .btn-white:hover { background: transparent; color: var(--rosa); border-color: var(--rosa); }
+
+#home a:focus-visible,
+#home button:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ring .ring-outer,
+  .hero-ring .ring-inner,
+  .hero-ring .ring-dot { animation: none; }
+  .hero-ring-toggle { display: none; }
+}
+
+@media (max-width: 600px) {
+  .hero-ring-wrap { width: min(68vw, 280px); margin-bottom: 2rem; }
+  .hero-corpo-pill { font-size: 0.8rem; }
+  #home .btn-white { font-size: 0.9rem; padding: 1rem 2.2rem; }
+}
+
 #home .hero-title em {
   font-style: normal;
   font-weight: 500;
@@ -333,7 +467,8 @@ nav {
 
 .hero-corpi {
   display: flex;
-  gap: 2rem;
+  gap: 0.9rem 2rem;
+  max-width: 640px;
   margin-bottom: 3.2rem;
   flex-wrap: wrap;
   justify-content: center;
@@ -342,23 +477,23 @@ nav {
 }
 
 .hero-corpo-pill {
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
+  font-size: 0.88rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.85);
   transition: color 0.3s;
   text-decoration: none;
-  padding-bottom: 2px;
-  border-bottom: 1px solid rgba(255,255,255,0.35);
+  padding-bottom: 3px;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
 }
 .hero-corpo-pill:hover { color: var(--rosa); border-bottom-color: var(--rosa); }
 
 .hero-desc {
   font-size: 1.05rem;
   color: var(--white);
-  max-width: 460px;
+  max-width: 640px;
   line-height: 1.8;
-  margin-bottom: 1rem;
+  margin-bottom: 2.2rem;
   position: relative;
   z-index: 1;
 }
@@ -1276,7 +1411,9 @@ footer .footer-logo span {
   #chiusura { padding: 6rem 1.5rem; }
 
   #contatti { padding: 5rem 1.5rem; }
-  #contatti .inner { grid-template-columns: 1fr; gap: 3rem; }
+  #contatti .inner { grid-template-columns: minmax(0, 1fr); gap: 3rem; }
+  #contatti .inner > * { min-width: 0; }
+  .contatti-social { flex-wrap: wrap; gap: 0.8rem; }
 
   footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
 }
@@ -1458,8 +1595,8 @@ footer .footer-logo span {
 #cookie-banner a { color: #e8327a; text-decoration: underline; text-underline-offset: 3px; }
 .cookie-buttons { display: flex; gap: 0.8rem; flex-shrink: 0; }
 .cookie-btn { padding: 0.5rem 1.2rem; font-family: 'Work Sans', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border: none; transition: background 0.2s, color 0.2s; }
-.cookie-btn-accept { background: #e8327a; color: #f7f5f0; }
-.cookie-btn-accept:hover { background: #c9235f; }
+.cookie-btn-accept { background: #e8327a; color: #0e0e0e; font-weight: 500; }
+.cookie-btn-accept:hover { background: #f7f5f0; color: #0e0e0e; }
 .cookie-btn-reject { background: transparent; color: rgba(247,245,240,0.6); border: 1px solid rgba(247,245,240,0.2); }
 .cookie-btn-reject:hover { color: #f7f5f0; border-color: rgba(247,245,240,0.5); }
 
@@ -1647,31 +1784,47 @@ footer .footer-logo span {
 
 <!-- HERO -->
 <section id="home">
-  <div class="hero-circle"></div>
-  <div class="hero-circle"></div>
-  <div class="hero-circle"></div>
+<div class="hero-grid">
 
-  <p class="hero-title"><em>Vivo,<br>dunque <span style="color:var(--rosa);font-style:normal">danzo.</span></em></p>
+  <div class="hero-ring-wrap">
+    <svg class="hero-ring" viewBox="0 0 400 400" role="img" aria-labelledby="hero-ring-title" focusable="false">
+      <title id="hero-ring-title">Danzo, dunque vivo, dunque danzo.</title>
+      <defs>
+        <path id="hero-ring-path-out" d="M 76,200 a 124,124 0 1,1 248,0 a 124,124 0 1,1 -248,0"/>
+              </defs>
+      <g class="ring-outer" aria-hidden="true">
+        <text class="ring-text" font-family="Jost, sans-serif" font-size="56" font-weight="400" fill="#f7f5f0"><textPath href="#hero-ring-path-out" textLength="733" lengthAdjust="spacing"><tspan fill="#e8327a">danzo</tspan> · <tspan font-size="45">dunque</tspan> · <tspan fill="#e8327a">vivo</tspan> · <tspan font-size="45">dunque</tspan> ·</textPath></text>
+      </g>
+      <circle cx="200" cy="200" r="80" fill="none" stroke="#f7f5f0" stroke-width="2.5" aria-hidden="true"/>
+      <g class="ring-dot" aria-hidden="true"><circle cx="200" cy="200" r="22" fill="#e8327a"/></g>
+    </svg>
+    <button type="button" class="hero-ring-toggle" id="hero-ring-toggle" aria-pressed="false" aria-label="Metti in pausa l'animazione">
+      <svg class="ico-pause" viewBox="0 0 14 14" aria-hidden="true" focusable="false"><rect x="3" y="2" width="3" height="10"/><rect x="8" y="2" width="3" height="10"/></svg>
+      <svg class="ico-play" viewBox="0 0 14 14" aria-hidden="true" focusable="false"><path d="M4 2 L12 7 L4 12 Z"/></svg>
+    </button>
+  </div>
 
-  <p class="hero-pre">io sono movimento.</p>
-
-  <p style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:0.8rem;position:relative;z-index:1;">sono corpo che è…</p>
+  <div class="hero-text">
+  <p class="hero-io">io sono <span style="color:var(--rosa)">movimento</span>.</p>
+  <p class="hero-sono">sono corpo che è…</p>
   <div class="hero-corpi">
     <a href="#corpo-casa" class="hero-corpo-pill">Casa</a>
     <a href="#corpo-creativo" class="hero-corpo-pill">Creatività</a>
     <a href="#corpo-sonoro" class="hero-corpo-pill">Suono</a>
     <a href="#corpo-poetico" class="hero-corpo-pill">Poesia</a>
-    <a href="#corpinmovimento" class="hero-corpo-pill">Movimento</a>
+    <a href="#corpinmovimento" class="hero-corpo-pill">Noi</a>
     <a href="#corpovivo" class="hero-corpo-pill">Vita</a>
+  </div>
+
+  <div class="hero-desc">
+    <h1 class="hero-claim">DANZATERAPIA DANZACREATIVA METODO MARIA FUX<br>RICERCA e PRATICHE DI COMUNITÀ<br>A TRIESTE e NEL MONDO</h1>
   </div>
 
   <div class="hero-buttons">
     <a href="#essere-corpo-bottoni" class="btn btn-white">Scopri i laboratori</a>
   </div>
-
-  <div class="hero-desc">
-    <h1 class="hero-eyebrow-sub" style="margin-bottom:0;color:#0e0e0e;background:#f7f5f0;padding:0.15em 0.4em;line-height:2.1;font-weight:400;box-decoration-break:clone;-webkit-box-decoration-break:clone;">DANZATERAPIA DANZACREATIVA METODO MARIA FUX<br>RICERCA e PRATICHE DI COMUNITÀ<br>A TRIESTE e NEL MONDO</h1>
   </div>
+</div>
 </section>
 
 <!-- IL METODO -->
@@ -1938,7 +2091,7 @@ footer .footer-logo span {
   </details></div>
     <div style="display:flex;align-items:flex-start;gap:1rem;margin:1.6rem 0 2rem;">
       <div style="width:3px;background:var(--rosa);flex-shrink:0;align-self:stretch;min-height:2.5rem;"></div>
-      <p style="font-family:'Jost',sans-serif;font-size:1.3rem;font-weight:400;font-style:normal;letter-spacing:0.01em;color:#222;line-height:1.35;margin:0;">Siamo marea che avanza.</p>
+      <p style="font-family:'Jost',sans-serif;font-size:1.3rem;font-weight:400;font-style:normal;letter-spacing:0.01em;color:#222;line-height:1.35;margin:0;">Ubuntu. Io sono perché noi siamo.</p>
     </div>
       <p>Un passo dopo l'altro, scopriamo che il movimento genera vincolo sociale ed empatia. Nei nostri incontri «siamo marea che avanza»: un flusso collettivo di corpi che si muovono insieme, abbattono barriere, creano fiducia e generano una comunità autenticamente accogliente e inclusiva. I corpi in movimento intrecciano i loro fili — e la comunità prende la sua forma.</p>
     </div>
@@ -2241,7 +2394,7 @@ footer .footer-logo span {
     <span><strong style="vertical-align:middle;">TRAMECORPOREE</strong> <span style="font-weight:400;font-style:normal;font-size:0.9rem;vertical-align:middle;">| danza · comunità · ricerca | di Nicoletta Carboni</span></span>
   </div>
   <p>Danzaterapia · Danza Creativa Metodo Maria Fux · Ricerca · Pratiche di Comunità<br>Trieste</p>
-  <p><a href="mailto:tramecorporee@gmail.com" style="color:inherit;text-decoration:none;">tramecorporee@gmail.com</a> · +39 338 1761632</p>
+  <p><a href="mailto:tramecorporee@gmail.com" style="color:inherit;text-decoration:none;">tramecorporee@gmail.com</a> · <span style="white-space:nowrap;">+39 338 1761632</span></p>
 </footer>
 
 <a href="#home" id="back-to-top" aria-label="Torna all'inizio">↑</a>
@@ -2401,5 +2554,40 @@ window.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('resize', stretchBrandName);
 </script>
 
+<script>
+(function(){
+  var home=document.getElementById('home');
+  var btn=document.getElementById('hero-ring-toggle');
+  if(!home||!btn) return;
+  function setPaused(p){
+    home.classList.toggle('ring-paused',p);
+    btn.setAttribute('aria-pressed',p?'true':'false');
+    try{ localStorage.setItem('tc-ring-paused',p?'1':'0'); }catch(e){}
+  }
+  var saved=null;
+  try{ saved=localStorage.getItem('tc-ring-paused'); }catch(e){}
+  if(saved==='1') setPaused(true);
+  btn.addEventListener('click',function(){ setPaused(!home.classList.contains('ring-paused')); });
+
+  function fitRing(){
+    var texts=document.querySelectorAll('.hero-ring .ring-text');
+    for(var i=0;i<texts.length;i++){
+      var t=texts[i], tp=t.querySelector('textPath');
+      var path=document.getElementById(tp.getAttribute('href').slice(1));
+      if(!path||!path.getTotalLength) continue;
+      var C=path.getTotalLength();
+      var old=tp.getAttribute('textLength');
+      tp.removeAttribute('textLength');
+      var L=t.getComputedTextLength();
+      var n=tp.textContent.length;
+      if(!L||!n){ if(old) tp.setAttribute('textLength',old); continue; }
+      var gap=parseFloat(t.getAttribute('font-size'))*0.26;
+      var e=(C-L-gap)/n;
+      tp.setAttribute('textLength',(L+e*(n-1)).toFixed(1));
+    }
+  }
+  if(document.fonts&&document.fonts.ready){ document.fonts.ready.then(fitRing); } else { fitRing(); }
+})();
+</script>
 </body>
 </html>
