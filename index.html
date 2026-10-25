@@ -318,6 +318,25 @@ nav {
 
 
 
+
+/* Ubuntu nella sezione Filosofia */
+.ubuntu-quote { display: flex; gap: 1rem; align-items: stretch; margin: -1rem 0 3rem; }
+.ubuntu-bar { width: 3px; background: var(--rosa); flex-shrink: 0; }
+#mappa-essere-corpo .ubuntu-text { font-family: 'Jost', sans-serif; font-size: 1.3rem; font-weight: 400; line-height: 1.35; color: var(--white); margin: 0 0 0.4rem; }
+#mappa-essere-corpo .ubuntu-cap { font-family: 'Work Sans', sans-serif; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(247,245,240,0.65); margin: 0; }
+
+/* Ritorno all'elenco dei laboratori */
+.torna-lab {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  margin-top: 1.6rem; padding: 0.55rem 0 0.35rem;
+  font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--black); text-decoration: none;
+  border-bottom: 2px solid var(--rosa);
+}
+.torna-lab:hover { color: var(--rosa); }
+.torna-lab:focus-visible { outline: 2px solid var(--black); outline-offset: 4px; }
+
 /* HERO LAYOUT: cerchio a destra su schermi larghi */
 .hero-grid {
   position: relative;
@@ -1879,6 +1898,13 @@ footer .footer-logo span {
       <h2>Corpi - Tessuto<br>del mondo.</h2>
       <p style="font-family:'Jost',sans-serif;font-size:1.25rem;font-weight:400;font-style:normal;letter-spacing:0.01em;color:var(--rosa);margin-bottom:1.2rem;">Il corpo tesse il mondo. Danzare è tessere.</p>
       <p>Per TRAMECORPOREE, ogni corpo è un filo che si intreccia con gli altri e con il filo della musica, o del silenzio che accompagna. Questo intreccio, che nasce nella relazione tra me, te, noi, lo spazio, la musica, il silenzio, il cosmo… è il <em>texto</em>, il tessuto del mondo, che siamo noi con il nostro andare, con il nostro danzare che è tessere corpo.<br><br>Nel movimento danzato, come nell'intreccio di ordito e trama, i corpi-fili trovano la possibilità di creare infinite combinazioni di forme e colori, raccontando una storia, che è storia di sé e di un'intera comunità. La tessitura danzata dei corpi e del cosmo diventa racconto comunitario.</p>
+      <div class="ubuntu-quote">
+        <div class="ubuntu-bar" aria-hidden="true"></div>
+        <div>
+          <p class="ubuntu-text">Ubuntu. Io sono perché noi siamo.</p>
+          <p class="ubuntu-cap">Ubuntu · filosofia dell'Africa australe</p>
+        </div>
+      </div>
     </div>
   </div>
   <div class="corpo-img">
@@ -1889,7 +1915,7 @@ footer .footer-logo span {
       <div class="mappa-grid" id="essere-corpo-bottoni">
         <a href="#corpo-casa" class="mappa-card">
                   <span class="mappa-card-title">Corpo Casa</span>
-          <span class="mappa-card-sub">Telaio · Radicamento · CREAdanza</span>
+          <span class="mappa-card-sub">Telaio · Soglia · CREAdanza</span>
         </a>
         <a href="#corpo-creativo" class="mappa-card">
                   <span class="mappa-card-title">Corpo Creativo</span>
@@ -1944,6 +1970,7 @@ footer .footer-logo span {
       <p style="font-family:'Jost',sans-serif;font-size:1.3rem;font-weight:400;font-style:normal;letter-spacing:0.01em;color:#222;line-height:1.35;margin:0;">Il corpo è la mia casa.</p>
     </div>
       <p> Il corpo è la nostra prima dimora. Con l'improvvisazione guidata del metodo di Maria Fux — che come un telaio porta struttura per poter generare un'immensa varietá di disegni — esploriamo i suoi limiti e le possibilità creative di movimento. In ascolto del proprio sentire, scopriamo e danziamo le sue radici, le sue finestre, le sue stanze.</p>
+      <a href="#laboratori-mappa" class="torna-lab"><span aria-hidden="true">↑</span> Tutti i laboratori</a>
     </div>
   </div>
   <div class="corpo-img">
@@ -1983,6 +2010,7 @@ footer .footer-logo span {
       <p style="font-family:'Jost',sans-serif;font-size:1.3rem;font-weight:400;font-style:normal;letter-spacing:0.01em;color:#222;line-height:1.35;margin:0;">Creatività è stare in ciò che accade.</p>
     </div>
       <p>Accogliendo l'energia vitale e l'immaginazione dei bambini, giochiamo con loro per permettere al movimento di trovare la sua forma naturale. Non cerchiamo la perfezione dei passi, ma l'autenticità del gesto spontaneo attraverso stimoli creativi, la fiaba, l'immagine, il colore… Seguendo il filo della meraviglia e dello stupore, la ricchezza del loro mondo interiore trova da sé il suo ordine organico e la sua direzione nello spazio. Nella creatività del gioco danzato, la trama del loro sentire e dei loro racconti trova spazio per esprimersi e creare.</p>
+      <a href="#laboratori-mappa" class="torna-lab"><span aria-hidden="true">↑</span> Tutti i laboratori</a>
     </div>
   </div>
   <div class="corpo-img">
@@ -2019,6 +2047,7 @@ footer .footer-logo span {
     </div>
       <p>Prima della musica c'è l'ascolto: uno stato profondo di presenza, denso come la terra e accogliente come l'acqua. Nel silenzio danzato sintonizziamo il ritmo del cuore prima ancora che arrivi la nota. L'ordito del silenzio tende i fili e la musica li fa vibrare.</p>
       <p>Quando entra la musica dal vivo il viaggio si espande: le note di sax, handpan, percussioni… generano un ambiente che dilata i confini della sala. Il suono si fa carne, muove i corpi da dentro e ci trasforma in un'orchestra vivente.</p>
+      <a href="#laboratori-mappa" class="torna-lab"><span aria-hidden="true">↑</span> Tutti i laboratori</a>
     </div>
   </div>
   <div class="corpo-img">
@@ -2059,6 +2088,7 @@ footer .footer-logo span {
     </div>
       <p>La danza incontra la poesia e la parola prende corpo. Il corpo poetico scrive nello spazio il proprio vissuto emotivo. E alla fine di ogni incontro, i danzatori lasciano una parola. La traccia di quello che è successo. Una sola parola. Quella che viene, dal corpo, senza pensare. E, parola dopo parola, nasce una poesia.</p>
       <p>Il corpo poetico è la prova che il movimento lascia traccia. La parola è il suo disegno.</p>
+      <a href="#laboratori-mappa" class="torna-lab"><span aria-hidden="true">↑</span> Tutti i laboratori</a>
     </div>
   </div>
   <div class="corpo-img">
@@ -2094,6 +2124,7 @@ footer .footer-logo span {
       <p style="font-family:'Jost',sans-serif;font-size:1.3rem;font-weight:400;font-style:normal;letter-spacing:0.01em;color:#222;line-height:1.35;margin:0;">Siamo marea che avanza.</p>
     </div>
       <p>Un passo dopo l'altro, scopriamo che il movimento genera vincolo sociale ed empatia. Nei nostri incontri «siamo marea che avanza»: un flusso collettivo di corpi che si muovono insieme, abbattono barriere, creano fiducia e generano una comunità autenticamente accogliente e inclusiva. I corpi in movimento intrecciano i loro fili — e la comunità prende la sua forma.</p>
+      <a href="#laboratori-mappa" class="torna-lab"><span aria-hidden="true">↑</span> Tutti i laboratori</a>
     </div>
   </div>
   <div class="corpo-img">
@@ -2129,6 +2160,7 @@ footer .footer-logo span {
     </div>
       <p>Nella danza, così come sul telaio, si genera lo spazio sacro per narrare la storia di sé e del collettivo. La danza del gruppo, come tessitura del cosmo, si trasforma in un racconto condiviso. I corpi, come tessuto, lasciano traccia del proprio passaggio.</p>
       <p>Ispirandoci alla danza di Maria Fux, intrecciamo i fili invisibili dei nostri vissuti. Raccontandoci nella danza del nostro corpo vivo, creiamo comunità. Qui l'intreccio si fa protagonista e guida del nostro andare, creando e narrando attraverso l'essere-corpo.</p>
+      <a href="#laboratori-mappa" class="torna-lab"><span aria-hidden="true">↑</span> Tutti i laboratori</a>
     </div>
   </div>
   <div class="corpo-img">
