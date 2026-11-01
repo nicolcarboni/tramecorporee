@@ -1245,9 +1245,10 @@ nav {
 }
 
 .contatti-row {
-  display: flex;
-  gap: 3rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, max-content));
+  column-gap: 3rem;
+  row-gap: 0.6rem;
   margin-bottom: 2rem;
 }
 
@@ -2399,6 +2400,10 @@ footer .footer-logo span {
           <a href="tel:+393381761632">+39 338 1761632</a>
         </div>
         <div class="contatti-item">
+          <span class="label">WhatsApp</span>
+          <a href="https://wa.me/393381761632?text=Ciao%20Nicoletta%2C%20vorrei%20informazioni%20sui%20laboratori%20di%20Trame%20Corporee." target="_blank" rel="noopener">Scrivimi su WhatsApp</a>
+        </div>
+        <div class="contatti-item">
           <span class="label">Sede laboratori</span>
           <p>Via Rittmeyer 16a · Trieste</p>
         </div>
@@ -2407,12 +2412,12 @@ footer .footer-logo span {
       <div class="contatti-social">
         <a href="https://www.instagram.com/tramecorporee/" target="_blank" class="social-btn">Instagram</a>
         <a href="https://www.facebook.com/tramecorporee" target="_blank" class="social-btn">Facebook</a>
-        <a href="https://share.google/Tg6Q0I4CANtJQenKr" target="_blank" class="social-btn" style="border-color:var(--rosa);color:var(--rosa);">Sei stato a Trame Corporee? Lascia una recensione su Google</a>
+        <a href="https://share.google/Tg6Q0I4CANtJQenKr" target="_blank" class="social-btn" style="border-color:var(--rosa);color:var(--rosa);">Sei statə a Trame Corporee? Lascia una recensione su Google</a>
       </div>
     </div>
 
     <div class="contatti-right">
-      <h3>I laboratori settimanali<br>si tengono ogni venerdì, DALL'11 SETTEMBRE 2026!</h3>
+      <h3>I laboratori settimanali<br>si tengono ogni venerdì.</h3>
       <p>Dalle 19:30 alle 21:00, in via Rittmeyer 16a a Trieste. Per partecipare basta scrivere — non è necessaria esperienza di danza.</p>
       <p>Per i seminari e i laboratori su progetto mi sposto in Italia e all'estero.</p>
       <p style="margin-top:2rem; font-family:'Jost',sans-serif; font-size:1.3rem; font-weight:400; font-style:normal; color:#222;">«Hay que seguir.<br>¡A viajar, a danzar!»</p>
