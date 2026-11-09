@@ -27,6 +27,9 @@
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#e8327a">
 <link rel="canonical" href="https://www.tramecorporee.it">
+<link rel="alternate" hreflang="it" href="https://www.tramecorporee.it">
+<link rel="alternate" hreflang="es" href="https://www.tramecorporee.it/es/">
+<link rel="alternate" hreflang="x-default" href="https://www.tramecorporee.it">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&family=Jost:wght@400;500;600&display=swap');
@@ -218,6 +221,10 @@ nav {
   .nav-dropdown { display: flex; align-items: center; flex-wrap: wrap; }
 }
 
+.nav-lang { display: flex; align-items: center; gap: 0.35rem; font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.09em; }
+.nav-lang span[aria-hidden] { color: #888; }
+.nav-lang .nav-lang-current { color: var(--rosa); }
+.nav-lang a { color: var(--black); }
 .nav-cta {
   border: 1px solid var(--rosa) !important;
   color: var(--rosa) !important;
@@ -1804,6 +1811,7 @@ footer .footer-logo span {
     <li><a href="#chi-sono-visione">Chi Sono</a></li>
     <li><a href="#chi-sono">Il mio percorso</a></li>
     <li><a href="#esperienze">Esperienze</a></li>
+    <li class="nav-lang" aria-label="Lingua"><span class="nav-lang-current" aria-current="true">IT</span><span aria-hidden="true">/</span><a href="/es/" lang="es" hreflang="es">ES</a></li>
     <li><a href="#contatti" class="nav-cta">Contatti</a></li>
   </ul>
 </nav>
